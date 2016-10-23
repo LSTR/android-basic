@@ -3,6 +3,8 @@ package com.lstr.gmap_example.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +27,7 @@ public class MainFragment extends Fragment implements OnMapReadyCallback, Google
     private GoogleMap mMap;
     private SupportMapFragment mapFragment;
     private float ZOOM_MAP = 5.5f;
+    private AppCompatActivity activity;
 
     public static MainFragment instance(){
         return new MainFragment();
@@ -33,6 +36,11 @@ public class MainFragment extends Fragment implements OnMapReadyCallback, Google
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        activity = (AppCompatActivity) getActivity();
+
+        Toolbar toolbar = (Toolbar)rootView.findViewById(R.id.toolbar);
+        toolbar.setTitle("Map Demo");
+        activity.setSupportActionBar(toolbar);
 
         this.inflater = inflater;
         this.context = getContext();
