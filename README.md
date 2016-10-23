@@ -3,7 +3,7 @@ Example using Google Maps
 
 ##Steps##
 
-Go to :https://console.developers.google.com
+Go to: https://console.developers.google.com
 
 Get the API KEY
 
@@ -19,7 +19,7 @@ Add metadata in AndroidManifiest.xml
 ####Get the location from web Service####
 
 - Add the libraries in your Gradle
-       ```
+       ```gradle
        android {
               useLibrary 'org.apache.http.legacy'
        }
