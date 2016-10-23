@@ -136,7 +136,7 @@ Add <metadata> in AndroidManifiest.xml
     
     
 - Show the location
-       ```
+       ```java
           private void mostrarUbicacion(double latitud, double longitud) {
                LatLng coordinate = new LatLng(latitud, longitud);
                CameraUpdate tuUbicacion = CameraUpdateFactory.newLatLngZoom(coordinate, ZOOM_MAP);
@@ -147,7 +147,7 @@ Add <metadata> in AndroidManifiest.xml
        ```
          
 - Show the marker
-    ```
+    ```java
     private void mostrarMarcador(LatLng coordinate) {
         MarkerOptions mp = new MarkerOptions();
         mp.position(coordinate);
