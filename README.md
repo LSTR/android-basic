@@ -9,14 +9,12 @@ Get the API KEY
 
 Add package name and fingerprint, then copy the KEY
 
-Add <metadata> in AndroidManifiest.xml
-
-       <meta-data
+Add metadata in AndroidManifiest.xml
+```xml
+<meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-            
-            
-
+```
 
 ####Get the location from web Service####
 
@@ -33,7 +31,7 @@ Add <metadata> in AndroidManifiest.xml
        ```
        
 - Create http request class
-       ```
+       ```java
        public class GetMethodEx {
            public String getInternetData() throws Exception{
                BufferedReader in = null;
@@ -73,8 +71,7 @@ Add <metadata> in AndroidManifiest.xml
        
        
 - Create the Buton and set the OnClickListener
-
-       ```
+       ```java
           Button btn = (Button) rootView.findViewById(R.id.cargar_ubicacion);
                btn.setOnClickListener(new View.OnClickListener() {
                    @Override
@@ -85,14 +82,14 @@ Add <metadata> in AndroidManifiest.xml
        ```
         
 - load location
-       ```
+       ```java
        private void cargarUbicacion() {
               new LongOperation().execute("");
        }
        ```
     
 - Make the request in the AsynTask
-    ```
+    ```java
     private class LongOperation extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
@@ -122,7 +119,7 @@ Add <metadata> in AndroidManifiest.xml
     
 
 - Read the values from Json
-    ```
+    ```java
     private void procesarJson(JSONObject jo) throws JSONException {
         JSONArray coordenada = jo.getJSONArray("coordenada");
         for (int i=0; i<coordenada.length(); i++){
@@ -136,22 +133,22 @@ Add <metadata> in AndroidManifiest.xml
     
     
 - Show the location
-       ```java
-          private void mostrarUbicacion(double latitud, double longitud) {
-               LatLng coordinate = new LatLng(latitud, longitud);
-               CameraUpdate tuUbicacion = CameraUpdateFactory.newLatLngZoom(coordinate, ZOOM_MAP);
-               mMap.animateCamera(tuUbicacion);
+     ```java
+     private void mostrarUbicacion(double latitud, double longitud) {
+         LatLng coordinate = new LatLng(latitud, longitud);
+         CameraUpdate tuUbicacion = CameraUpdateFactory.newLatLngZoom(coordinate, ZOOM_MAP);
+         mMap.animateCamera(tuUbicacion);
 
-               mostrarMarcador(coordinate);
-         }
-       ```
+         mostrarMarcador(coordinate);
+      }
+      ```
          
 - Show the marker
-    ```java
-    private void mostrarMarcador(LatLng coordinate) {
+       ```java
+       private void mostrarMarcador(LatLng coordinate) {
         MarkerOptions mp = new MarkerOptions();
         mp.position(coordinate);
         mp.title("Ubicacon Encontrada");
         mMap.addMarker(mp);
-    }
-    ```
+       }
+       ```
