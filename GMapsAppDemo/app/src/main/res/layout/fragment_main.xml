@@ -15,11 +15,23 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <fragment
-        android:id="@+id/map"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        class="com.google.android.gms.maps.SupportMapFragment" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+        <Button
+            android:id="@+id/cargar_ubicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/cargar_ubicacion"/>
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
